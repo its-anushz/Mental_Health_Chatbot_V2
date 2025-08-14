@@ -1,0 +1,25 @@
+/* General navbar link hover styling */
+.navbar .navbar-nav .nav-link:hover {
+  background-color: #b58ce6;
+  border-radius: 0.375rem;
+}
+
+/* SOS link - always red with white text */
+.navbar .navbar-nav .sos {
+  background-color: #dc3545 !important;  /* Bootstrap red */
+  color: white !important;
+  border-radius: 0.375rem;
+}
+
+/* SOS link on hover/visited/active - remain red */
+.navbar .navbar-nav .sos:hover,
+.navbar .navbar-nav .sos:visited,
+.navbar .navbar-nav .sos:active {
+  background-color: #dc3545 !important;
+  color: white !important;
+}
+
+/* Body font */
+body {
+  font-family: Arial;
+}

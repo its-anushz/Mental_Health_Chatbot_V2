@@ -1,39 +1,74 @@
-# Python
+# =========================
+# Python cache and build
+# =========================
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 *.so
+*.egg
+*.egg-info/
+dist/
+build/
 
+# =========================
 # Virtual environments
+# =========================
 venv/
 env/
+evenv/
+myenv/
 .venv/
 .env/
 
+# =========================
 # Environment variables
+# =========================
 .env
 *.env
 
-# IDE/editor files
+# =========================
+# IDE/editor settings
+# =========================
 .vscode/
 .idea/
 
+# =========================
 # macOS
+# =========================
 .DS_Store
 
-# Byte-compiled / optimized / DLL files
-*.pyd
-*.dll
-*.dylib
-
+# =========================
 # Logs
+# =========================
 *.log
 
-# SQLite or other local databases
+# =========================
+# Databases and instances
+# =========================
 *.sqlite3
 instance/
 
-# Pytest
+# =========================
+# Test / cache files
+# =========================
 .cache/
+.pytest_cache/
+
+# =========================
+# Machine learning large files
+# =========================
+*.h5
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+glove*.txt
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/
 

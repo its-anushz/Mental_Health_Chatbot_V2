@@ -1,0 +1,150 @@
+{% extends 'layout.html' %} 
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(120deg, #f7f8fa 60%, #e3e7ed 100%);
+    min-height: 100vh;
+  }
+  .about-bg-section {
+    background: linear-gradient(90deg, #f7f8fa 80%, #e3e7ed 100%);
+    border-radius: 1.5rem;
+    margin-bottom: 2.5rem;
+    padding: 2.5rem 2rem 2rem 2rem;
+    box-shadow: 0 2px 12px rgba(60,60,60,0.04);
+    border-left: 6px solid #b0bec5;
+  }
+  .about-title {
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 2.7rem;
+    color: #2d3a4a;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #b0bec5;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    background: none;
+    border-radius: 0;
+  }
+  .about-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid #b0bec5;
+    box-shadow: 0 2px 12px rgba(60,60,60,0.10);
+    margin-bottom: 1.5rem;
+    background: #f2f4f8;
+  }
+  .about-section-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+  .about-text {
+    color: #4b5563;
+    font-size: 1.08rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(90deg, #f7f8fa 80%, #e3e7ed 100%);
+    border-radius: 0.5rem;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 1px 4px rgba(60,60,60,0.02);
+    border-left: 3px solid #b0bec5;
+  }
+  .about-hr {
+    border-top: 1px solid #e0e4ea;
+    margin: 1.2rem 0;
+  }
+  .about-feature {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin-bottom: 0.8rem;
+    background: #f2f4f8;
+    border-radius: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    border-left: 3px solid #b0bec5;
+  }
+  .about-feature-icon {
+    font-size: 1.3rem;
+    color: #7b8ca7;
+    margin-top: 0.2rem;
+  }
+  @media (max-width: 900px) {
+    .about-bg-section {
+      padding: 1.2rem 0.5rem;
+    }
+    .about-title {
+      font-size: 2rem;
+    }
+    .about-img {
+      width: 120px;
+      height: 120px;
+    }
+  }
+</style>
+<div class="container-fluid px-0">
+  <div class="about-bg-section">
+    <div class="text-center">
+      <span class="about-title d-block">About Us</span>
+    </div>
+    <div class="row align-items-center mt-4">
+      <div class="col-md-4 text-center mb-4 mb-md-0">
+        <img
+          src="{{ url_for('static', filename='images/logo.jpg') }}"
+          alt="Mental Health Chatbot Logo"
+          class="about-img"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="about-text">
+          Welcome to our mental health chatbot. Our mission is to provide reliable information and resources to help you improve your mental health and wellbeing in a safe, private, and supportive environment.
+        </div>
+        <div class="about-hr"></div>
+        <div class="about-text">
+          We understand that seeking help for mental health concerns can be challenging. Our chatbot is designed to make the process as comfortable and accessible as possible, offering guidance and support at your own pace.
+        </div>
+        <div class="about-hr"></div>
+        <div class="about-text">
+          <strong>Note:</strong> Our chatbot is not a substitute for professional help. If you are experiencing a mental health crisis, please seek assistance from a qualified mental health professional.
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-6">
+        <div class="about-section-title">Our Mission</div>
+        <div class="about-text">
+          We believe that education and awareness are critical components of mental health. Our chatbot provides accurate and up-to-date information on various mental health conditions, including symptoms, causes, and effects. We also offer resources such as mental health tests and exercises to help you evaluate and improve your wellbeing.
+        </div>
+        <div class="about-feature">
+          <span class="about-feature-icon">&#10003;</span>
+          <span>Evidence-based information</span>
+        </div>
+        <div class="about-feature">
+          <span class="about-feature-icon">&#10003;</span>
+          <span>Anonymous and private support</span>
+        </div>
+        <div class="about-feature">
+          <span class="about-feature-icon">&#10003;</span>
+          <span>Accessible anytime, anywhere</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="about-section-title">Our Team</div>
+        <div class="about-text">
+          This chatbot was developed by a dedicated student passionate about mental health. We are committed to breaking down the stigma surrounding mental health and creating a supportive community for individuals to seek help.<br>
+          <span style="font-size: 0.97rem;">Contact: <strong>anouka@gmail.com</strong></span>
+        </div>
+        <div class="about-feature">
+          <span class="about-feature-icon">&#128100;</span>
+          <span>Student-led initiative</span>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

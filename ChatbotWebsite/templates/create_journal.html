@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(120deg, #f7f8fa 60%, #e3e7ed 100%);
+    min-height: 100vh;
+  }
+  .journal-form-section {
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(60,60,60,0.07);
+    border-left: 4px solid #b0bec5;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  legend {
+    color: #2d3a4a;
+    background: none;
+    border-radius: 0;
+    border-bottom: 2px solid #b0bec5;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  .form-control, .form-control:focus {
+    border-radius: 0.7rem;
+    border: 1.5px solid #b0bec5;
+    background: #f7f8fa;
+    color: #4b5563;
+    box-shadow: none;
+    transition: border-color 0.2s;
+  }
+  .form-control:focus {
+    border-color: rgb(14, 51, 82);
+    background: #fff;
+  }
+  .btn-outline-info {
+    border-color: #b0bec5;
+    color: #2d3a4a;
+    background: #fff;
+    font-weight: 500;
+    border-radius: 0.7rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline-info:hover, .btn-outline-info:focus {
+    background: #e3e7ed;
+    color: #2d3a4a;
+    border-color: rgb(14, 51, 82);
+  }
+  .invalid-feedback {
+    font-size: 0.97rem;
+  }
+</style>
+<div class="container-sm px-2">
+  <form method="POST" action="">
+    {{form.hidden_tag()}}
+    <fieldset class="form-group d-grid gap-3 journal-form-section">
+      <legend>
+        {{legend}}
+      </legend>
+      <div class="form-group mb-3">
+        {{form.mood.label(class="form-control-label")}}
+        {%if form.mood.errors%}
+          {{form.mood(class="form-control form-control-lg is-invalid")}}
+          {%for error in form.mood.errors%}
+            <div class="invalid-feedback">{{error}}</div>
+          {%endfor%}
+        {%else%}
+          {{form.mood(class="form-control form-control-lg")}}
+        {%endif%}
+      </div>
+      <div class="form-group mb-3">
+        {{form.content.label(class="form-control-label")}}
+        {%if form.content.errors%}
+          {{form.content(class="form-control form-control-lg is-invalid",style="height:220px")}}
+          {%for error in form.content.errors%}
+            <div class="invalid-feedback">{{error}}</div>
+          {%endfor%}
+        {%else%}
+          {{form.content(class="form-control form-control-lg",style="height:220px")}}
+        {%endif%}
+      </div>
+    </fieldset>
+    <div class="form-group text-center">
+      {{form.submit(class="btn btn-outline-info btn-lg mt-3 px-5")}}
+    </div>
+  </form>
+</div>
+{% endblock content %}

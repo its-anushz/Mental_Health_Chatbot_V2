@@ -1,0 +1,141 @@
+{%extends 'layout.html'%}
+{%block content%}
+<style>
+  body {
+    background: linear-gradient(120deg, #f7f8fa 60%, #e3e7ed 100%);
+    min-height: 100vh;
+  }
+  .journal-view-card {
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(60,60,60,0.07);
+    border-left: 4px solid #b0bec5;
+    margin-bottom: 2.5rem;
+    padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+  }
+  .journal-view-title {
+    color: #2d3a4a;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.5px;
+  }
+  .journal-view-mood {
+    color: rgb(106, 66, 154);;
+    font-weight: 500;
+  }
+  .journal-view-content {
+    color: #374151;
+    font-size: 1.13rem;
+    line-height: 1.7;
+    margin-bottom: 1.2rem;
+    background: #f7f8fa;
+    border-radius: 0.5rem;
+    padding: 1rem 1.2rem;
+  }
+  .journal-view-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 1.2rem;
+  }
+  .journal-avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #b0bec5;
+    background: #f2f4f8;
+    margin-right: 0.7rem;
+  }
+  .journal-user {
+    font-weight: 500;
+    color: #2d3a4a;
+    margin-bottom: 0;
+  }
+  .journal-timestamp {
+    color: #90a4ae;
+    font-size: 0.97rem;
+  }
+  .journal-actions .btn {
+    min-width: 90px;
+    margin-right: 0.5rem;
+  }
+  .btn-outline-secondary, .btn-outline-danger, .btn-secondary {
+    border-radius: 0.7rem;
+    font-weight: 500;
+  }
+  .btn-outline-secondary:hover, .btn-outline-danger:hover, .btn-secondary:hover {
+    background: #e3e7ed;
+    color: #2d3a4a;
+    border-color: #90a4ae;
+  }
+  .back-btn {
+    margin-top: 1.5rem;
+    border-radius: 0.7rem;
+    font-weight: 500;
+    min-width: 100px;
+  }
+  .modal-content {
+    border-radius: 1rem;
+    background: #fff;
+    border: 1.5px solid #e0e4ea;
+  }
+  .modal-title {
+    color: #2d3a4a;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+</style>
+<div class="container-sm d-grid mt-5">
+  <div class="container pt-1">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="journal-view-card card mb-3 border-0">
+        <div class="card-body p-4">
+          <h3 class="journal-view-title mb-3">
+            Feeling <span class="journal-view-mood">{{journal.mood}}</span> on {{journal.timestamp.strftime('%d.%m.%Y')}}
+          </h3>
+          <div class="journal-view-content lh-lg">{{journal.content}}</div>
+          <hr class="my-3">
+          <div class="journal-view-footer">
+            <img src="{{url_for('static',filename='profile_images/'+current_user.profile_image)}}" alt="profile-avatar"
+                class="journal-avatar">
+            <div>
+              <p class="journal-user mb-0">{{journal.user.username}}</p>
+              <small class="journal-timestamp">Created on {{journal.timestamp.strftime('%d/%m/%Y, %A, %H:%M')}}</small>
+            </div>
+            <div class="journal-actions ms-auto d-flex gap-2">
+              <a href="{{url_for('journals.update_journal',journal_id=journal.id)}}" class="btn btn-outline-secondary">Update</a>
+              <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteJournal">
+                Delete
+              </button>
+            </div>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="deleteJournal" tabindex="-1" aria-labelledby="deleteJournalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="deleteJournalLabel">Delete Journal?</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Are you sure you want to delete your journal? This action cannot be undone.
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <form action="{{url_for('journals.delete_journal',journal_id=journal.id)}}" method="POST">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- End Modal -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{{url_for('journals.all_journals')}}" class="btn btn-outline-secondary back-btn mx-auto">&lt; Back</a>
+</div>
+{%endblock content%}

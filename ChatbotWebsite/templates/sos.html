@@ -1,0 +1,107 @@
+{%extends 'layout.html'%}
+{%block content%}
+<style>
+  body {
+    background: linear-gradient(120deg, #f7f8fa 60%, #e3e7ed 100%);
+    min-height: 100vh;
+  }
+  #about-us-title {
+    color: #2d3a4a;
+    font-size: 2.2rem;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #b0bec5 !important;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    background: none;
+    border-radius: 0;
+    text-align: center;
+  }
+  .sos-list {
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(60,60,60,0.07);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2.5rem;
+    border-left: 4px solid #b0bec5;
+    max-width: 900px; /* Set to 900px for a wider but not too wide card */
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .list-group-item {
+    background:rgb(218, 219, 219);
+    border: none;
+    border-radius: 0.7rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(60,60,60,0.03);
+    padding: 1.2rem 1rem;
+  }
+  .list-group-item h4 {
+    color: #2d3a4a;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .list-group-item a {
+    color: rgb(106, 66, 154);
+    font-weight: 500;
+    transition: color 0.2s;
+    word-break: break-all;
+  }
+  .list-group-item a:hover {
+    color:rgb(103, 56, 162);
+    text-decoration: underline;
+  }
+  .list-group-item br {
+    margin-bottom: 0.5rem;
+  }
+  @media (max-width: 1000px) {
+    .sos-list {
+      max-width: 98vw;
+      padding: 1rem 0.5rem;
+    }
+    #about-us-title {
+      font-size: 1.3rem;
+    }
+  }
+</style>
+<div class="container-fluid d-grid">
+    <h1
+      id="about-us-title"
+      class="mx-auto mt-2 mb-5 fw-bold font-monospace border-bottom"
+    >
+      SOS Hotline in INDIA
+    </h1>
+    <div class="sos-list">
+        <ul class="list-group">
+            <li class="list-group-item">
+              <h4>Tele MANAS - Ministry of Health and Family Welfare</h4>
+               Contact Number: 14416 or 1800-89-14416 (24/7) <br>
+              <a class="link-info text-decoration-none" href="https://telemanas.mohfw.gov.in/home" target="_blank">https://telemanas.mohfw.gov.in/home</a>
+            </li>
+            <li class="list-group-item">
+              <h4>KIRAN: Mental Health Rehabilitation Helpline</h4>
+              Contact Number: 1800-599-0019 (24/7) <br>
+              <a class="link-info text-decoration-none" href="https://socialjustice.gov.in/" target="_blank">https://socialjustice.gov.in/</a><br>
+            </li>
+            <li class="list-group-item">
+              <h4>Vandrevala Foundation: Mental Health Helpline in India</h4>
+              Contact Number: +91 9999 666 555 , 1860 266 2345, 1800 233 3330  (24/7) <br>
+              <a class="link-info text-decoration-none" href="https://www.vandrevalafoundation.com/" target="_blank">https://www.vandrevalafoundation.com/</a>
+            </li>
+            <li class="list-group-item">
+              <h4>AASRA: Suicide Prevention & Emotional Support NGO</h4>
+              Contact Number: 022-27546667 (24/7) <br>
+              <a class="link-info text-decoration-none" href="https://www.aasra.info/" target="_blank">https://www.aasra.info/</a>
+            </li>
+            <li class="list-group-item">
+              <h4>iCALL (Tata Institute of Social Sciences)</h4>
+              Contact Number: 9152987821, 022-25521111 (Mon–Sat, 8AM–10PM)<br>
+              <a class="link-info text-decoration-none" href="https://icallhelpline.org/" target="_blank">https://icallhelpline.org/</a>
+            </li>       
+        </ul>
+    </div>
+</div>
+{%endblock content%}

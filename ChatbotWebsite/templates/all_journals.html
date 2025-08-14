@@ -1,0 +1,135 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(120deg, #f7f8fa 60%, #e3e7ed 100%);
+    min-height: 100vh;
+  }
+  .journal-card {
+    background: linear-gradient(100deg, #f7f8fa 85%, #e3e7ed 100%);
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 12px rgba(60,60,60,0.06);
+    border-left: 5px solid rgb(14, 51, 82);
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+    margin-bottom: 2.2rem;
+    transition: box-shadow 0.2s;
+  }
+  .journal-card:hover {
+    box-shadow: 0 4px 24px rgba(60,60,60,0.13);
+  }
+  .journal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(106, 66, 154);;
+    margin-bottom: 0.7rem;
+  }
+  .journal-date {
+    color: #607d8b;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+  .journal-content {
+    color: #374151;
+    font-size: 1.08rem;
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+    background: rgba(255,255,255,0.7);
+    border-radius: 0.5rem;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 1px 4px rgba(60,60,60,0.02);
+  }
+  .journal-footer {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 0.7rem;
+  }
+  .journal-avatar {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #b0bec5;
+    background: #f2f4f8;
+    margin-right: 0.7rem;
+  }
+  .journal-user {
+    font-weight: 500;
+    color: #2d3a4a;
+    margin-bottom: 0;
+  }
+  .journal-timestamp {
+    color: #90a4ae;
+    font-size: 0.97rem;
+  }
+  .journal-view-btn {
+    margin-left: auto;
+    min-width: 90px;
+  }
+  .add-journal-btn {
+    background: rgb(14, 51, 82);
+    color: #fff;
+    border: none;
+    font-weight: 600;
+    border-radius: 0.7rem;
+    box-shadow: 0 1px 4px rgba(60,60,60,0.07);
+    transition: background 0.2s;
+  }
+  .add-journal-btn:hover {
+    background: rgb(103, 56, 162);
+    color: #fff;
+  }
+  .pagination .btn {
+    min-width: 40px;
+    margin-right: 0.2rem;
+  }
+</style>
+
+<div class="container-fluid d-grid">
+    <a class="btn mx-auto mt-3 mb-4 add-journal-btn btn-lg" href="{{url_for('journals.new_journal')}}">Add Journal</a>
+    <div class="ms-auto pagination">
+        {% for page_num in journals.iter_pages(left_edge=1,right_edge=1, left_current=1,right_current=1) %}
+            {%if page_num%}
+                {%if journals.page ==page_num%}
+                <a href="{{url_for('journals.all_journals',page=page_num)}}" class="btn btn-secondary mb-4">{{page_num}}</a>
+                {%else%}
+                    <a href="{{url_for('journals.all_journals',page=page_num)}}" class="btn btn-outline-secondary mb-4">{{page_num}}</a>
+                {%endif%}
+            {%else%}
+                ...
+            {%endif%}
+        {% endfor %}
+    </div>
+    {% for journal in journals.items %}
+        <div class="container py-1">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col col-10">
+                    <div class="journal-card card mb-5 border-0">
+                        <div class="card-body p-4">
+                            <div class="journal-title">
+                                Feeling <a href="{{url_for('journals.journal',journal_id=journal.id)}}" class="text-info text-decoration-none">{{journal.mood}}</a>
+                                <span class="journal-date">on {{journal.timestamp.strftime('%d.%m.%Y')}}</span>
+                            </div>
+                            <div class="journal-content text-truncate">
+                                {{journal.content}}
+                            </div>
+                            <hr class="my-3">
+                            <div class="journal-footer">
+                                <img src="{{url_for('static',filename='profile_images/'+current_user.profile_image)}}" alt="profile-avatar"
+                                    class="journal-avatar">
+                                <div>
+                                    <p class="journal-user mb-0">{{journal.user.username}}</p>
+                                    <small class="journal-timestamp">Created on {{journal.timestamp.strftime('%d/%m/%Y, %A, %H:%M')}}</small>
+                                </div>
+                                <a href="{{url_for('journals.journal',journal_id=journal.id)}}" class="btn btn-outline-secondary journal-view-btn">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}

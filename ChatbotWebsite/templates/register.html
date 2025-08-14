@@ -1,0 +1,160 @@
+{%extends "layout.html"%} 
+{%block content%}
+<style>
+  body {
+    background: linear-gradient(120deg, #f7f8fa 60%, #e3e7ed 100%);
+    min-height: 100vh;
+  }
+  .register-card {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 40px rgba(60,60,60,0.10);
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 2.5rem 2rem 2rem 2rem;
+    border-left: 6px solid #b0bec5;
+    transition: box-shadow 0.2s;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .register-card:hover {
+    box-shadow: 0 8px 32px rgba(60,60,60,0.13);
+  }
+  legend {
+    color: #2d3a4a;
+    border-bottom: 2px solid #b0bec5;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2.2rem;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    background: none;
+    border-radius: 0;
+    text-align: center;
+  }
+  .form-control, .form-control:focus {
+    border-radius: 0.8rem;
+    border: 1.5px solid #b0bec5;
+    background: #f7f8fa;
+    color: #2d3a4a;
+    box-shadow: none;
+    transition: border-color 0.2s;
+    font-size: 1.08rem;
+  }
+  .form-control:focus {
+    border-color: rgb(14, 51, 82);
+    background: #fff;
+  }
+  .btn-outline-info {
+    border-color: #b0bec5;
+    color: #2d3a4a;
+    background: #fff;
+    font-weight: 600;
+    border-radius: 0.8rem;
+    transition: background 0.2s, color 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .btn-outline-info:hover, .btn-outline-info:focus {
+    background: #e3e7ed;
+    color: #2d3a4a;
+    border-color: rgb(14, 51, 82);
+  }
+  .link-info {
+    color: rgb(106, 66, 154);;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .link-info:hover {
+    color: rgb(103, 56, 162);
+    text-decoration: underline;
+  }
+  .invalid-feedback {
+    font-size: 0.97rem;
+  }
+  hr {
+    border-top: 1.5px solid #e0e4ea;
+    margin: 2rem 0 1rem 0;
+  }
+  @media (max-width: 600px) {
+    .register-card {
+      padding: 1.2rem 0.5rem;
+      max-width: 98vw;
+    }
+    legend {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+<div class="container-sm px-2">
+  <div class="row justify-content-center">
+    <div class="register-card">
+      <form method="POST" action="">
+        {{form.hidden_tag()}}
+        <fieldset class="form-group d-grid gap-3">
+          <legend>
+            Create Your Account
+          </legend>
+          <div class="form-group mb-3">
+            {{form.username.label(class="form-control-label")}}
+            {%if form.username.errors%}
+              {{form.username(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.username.errors%}
+                <div class="invalid-feedback">{{error}}</div>
+              {%endfor%}
+            {%else%}
+              {{form.username(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group mb-3">
+            {{form.email.label(class="form-control-label")}}
+            {%if form.email.errors%}
+              {{form.email(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.email.errors%}
+                <div class="invalid-feedback">{{error}}</div>
+              {%endfor%}
+            {%else%}
+              {{form.email(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group mb-3">
+            {{form.password.label(class="form-control-label")}}
+            {%if form.password.errors%}
+              {{form.password(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.password.errors%}
+                <div class="invalid-feedback">{{error}}</div>
+              {%endfor%}
+            {%else%}
+              {{form.password(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group mb-3">
+            {{form.confirm_password.label(class="form-control-label")}}
+            {%if form.confirm_password.errors%}
+              {{form.confirm_password(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.confirm_password.errors%}
+                <div class="invalid-feedback">{{error}}</div>
+              {%endfor%}
+            {%else%}
+              {{form.confirm_password(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+        </fieldset>
+        <div class="form-group">
+          {{form.submit(class="btn btn-success btn-lg mt-3 w-100")}}
+        </div>
+      </form>
+      <hr />
+      <div class="text-center">
+        <small>
+          Already have an account?
+          <a class="link-info text-decoration-none" href="{{url_for('users.login')}}">
+            Sign In
+          </a>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

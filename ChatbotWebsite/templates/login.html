@@ -1,0 +1,137 @@
+{%extends "layout.html"%} 
+{%block content%}
+<style>
+  body {
+    background: linear-gradient(120deg, #f7f8fa 60%, #e3e7ed 100%);
+    min-height: 100vh;
+  }
+  .login-card {
+    background: #fff;
+    border-radius: 1.2rem;
+    box-shadow: 0 8px 40px rgba(60,60,60,0.07);
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 2.2rem 1.5rem 1.5rem 1.5rem;
+    border-left: 4px solid #b0bec5;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  legend {
+    color: #2d3a4a;
+    border-bottom: 2px solid #b0bec5;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: none;
+    border-radius: 0;
+    text-align: center;
+  }
+  .form-control, .form-control:focus {
+    border-radius: 0.7rem;
+    border: 1.5px solid #b0bec5;
+    background: #f7f8fa;
+    color: #4b5563;
+    box-shadow: none;
+    transition: border-color 0.2s;
+  }
+  .form-control:focus {
+    border-color: rgb(14, 51, 82);
+    background: #fff;
+  }
+  .btn-outline-info {
+    border-color: #b0bec5;
+    color: #2d3a4a;
+    background: #fff;
+    font-weight: 500;
+    border-radius: 0.7rem;
+    transition: background 0.2s, color 0.2s;
+  }
+  .btn-outline-info:hover, .btn-outline-info:focus {
+    background: #e3e7ed;
+    color: #2d3a4a;
+    border-color:rgb(14, 51, 82);
+  }
+  .link-info {
+    color: rgb(106, 66, 154);;
+  }
+  .link-info:hover {
+    color:rgb(103, 56, 162);
+    text-decoration: underline;
+  }
+  .invalid-feedback {
+    font-size: 0.97rem;
+  }
+  hr {
+    border-top: 1.5px solid #e0e4ea;
+    margin: 2rem 0 1rem 0;
+  }
+  @media (max-width: 600px) {
+    .login-card {
+      padding: 1.2rem 0.5rem;
+      max-width: 98vw;
+    }
+    legend {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+<div class="container-sm px-2">
+  <div class="row justify-content-center">
+    <div class="login-card">
+      <form method="POST" action="">
+        {{form.hidden_tag()}}
+        <fieldset class="form-group d-grid gap-3">
+          <legend>
+            Log In
+          </legend>
+          <div class="form-group mb-3">
+            {{form.email.label(class="form-control-label")}}
+            {%if form.email.errors%}
+              {{form.email(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.email.errors%}
+                <div class="invalid-feedback">{{error}}</div>
+              {%endfor%}
+            {%else%}
+              {{form.email(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-group mb-3">
+            {{form.password.label(class="form-control-label")}}
+            {%if form.password.errors%}
+              {{form.password(class="form-control form-control-lg is-invalid")}}
+              {%for error in form.password.errors%}
+                <div class="invalid-feedback">{{error}}</div>
+              {%endfor%}
+            {%else%}
+              {{form.password(class="form-control form-control-lg")}}
+            {%endif%}
+          </div>
+          <div class="form-check mb-2">
+            {{form.remember_me(class="form-check-input")}}
+            {{form.remember_me.label(class="form-check-label")}}
+          </div>
+        </fieldset>
+        <div class="form-group">
+          {{form.submit(class="btn btn-success btn-lg mt-3 mb-1 w-100")}}
+        </div>
+        <small class="text-muted">
+          <a class="link-info text-decoration-none" href="{{url_for('users.reset_request')}}">Forgot Password?</a>
+        </small>
+      </form>
+      <hr />
+      <div class="text-center text-muted">
+        <small>
+          Need an Account?
+          <a class="link-info text-decoration-none" href="{{url_for('users.register')}}">
+            Sign Up
+          </a>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
