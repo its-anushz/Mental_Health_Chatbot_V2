@@ -69,5 +69,27 @@ Want to run the project on your own machine? It's pretty easy! Just follow these
 
 * Anushree K C
 * Bhoomika K
+---
+
+## ✨ Our Contributors
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/github_username_1">
+        <img src="https://avatars.githubusercontent.com/u/user_id_1?v=4" width="100px;" alt="User 1 Name"/>
+        <br />
+        <sub><b>its-anushz</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/github_username_2">
+        <img src="https://avatars.githubusercontent.com/u/user_id_2?v=4" width="100px;" alt="User 2 Name"/>
+        <br />
+        <sub><b>bhoomikak23</b></sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
 > **Just a heads-up:** This project is for learning and self-awareness, not as a replacement for professional mental health support. If you're going through a tough time, please reach out to a professional or use the emergency resources we've listed. Your well-being is what's most important!
