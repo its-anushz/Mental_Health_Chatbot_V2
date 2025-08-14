@@ -6,16 +6,16 @@ Hey there! Welcome to, a friendly mental health chatbot we built for our M.Tech 
 
 ##  What can you do here?
 
--   ** Chat Anonymously:** Have a supportive chat whenever you need it! We used some cool NLP (with NLTK) to help the bot understand what you're saying.
--   ** Keep a Private Journal:** Jot down your thoughts and feelings in your own secure journal. It's a great way to get to know yourself better.
--   ** Relax with Mindfulness:** Feeling stressed? Check out our collection of positive quotes and simple breathing exercises to help you find your calm.
--   ** Quick Self-Check-ins:** Curious about how you're doing? Take our simple self-tests (based on the PHQ-9 and GAD-7) to reflect on your mood.
--   ** SOS Hotline:** If you need help right away, we've got a list of emergency contacts you can call.
--   ** Your Privacy Matters:** We take your privacy seriously. Everything you do here is just for you, and your password is super secure.
+-   **Chat Anonymously:** Have a supportive chat whenever you need it! We used some cool NLP (with NLTK) to help the bot understand what you're saying.
+-   **Keep a Private Journal:** Jot down your thoughts and feelings in your own secure journal. It's a great way to get to know yourself better.
+-   **Relax with Mindfulness:** Feeling stressed? Check out our collection of positive quotes and simple breathing exercises to help you find your calm.
+-   **Quick Self-Check-ins:** Curious about how you're doing? Take our simple self-tests (based on the PHQ-9 and GAD-7) to reflect on your mood.
+-   **SOS Hotline:** If you need help right away, we've got a list of emergency contacts you can call.
+-   **Your Privacy Matters:** We take your privacy seriously. Everything you do here is just for you, and your password is super secure.
 
 ---
 
-## 🛠 What's under the hood?
+##  What's under the hood?
 
 Here's a peek at the tech we used to bring MindScribe to life:
 
